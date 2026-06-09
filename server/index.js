@@ -1,3 +1,17 @@
+
+console.log('Booting server...');
+process.on('uncaughtException', (error) => {
+  console.error('Uncaught exception:', error);
+  process.exit(1);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled rejection at:', promise, 'reason:', reason);
+  process.exit(1);
+});
+
+
+try{
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -105,13 +119,9 @@ server.on('error', (error) => {
   console.error('Server error:', error);
   process.exit(1);
 });
-
-process.on('uncaughtException', (error) => {
-  console.error('Uncaught exception:', error);
+}
+catch (error)
+{
+  console.error('Startup failure:', error);
   process.exit(1);
-});
-
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('Unhandled rejection at:', promise, 'reason:', reason);
-  process.exit(1);
-});
+}
