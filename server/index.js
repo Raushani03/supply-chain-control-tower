@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { generateKPIs, generateExceptions, generateTrends, generateShipments, generateInventory } = require('./data/mockData');
 
 const app = express();
@@ -7,6 +8,9 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
+
+// Serve static files from the dist directory
+app.use(express.static(path.join(__dirname, '../dist')));
 
 app.get('/api/kpis', (req, res) => {
   const kpis = generateKPIs();
@@ -79,6 +83,11 @@ app.post('/api/exceptions/:id/action', (req, res) => {
     message: `Action "${action}" recorded successfully`,
     timestamp: new Date().toISOString()
   });
+});
+
+// Serve index.html for all non-API routes (for client-side routing)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 app.listen(PORT, () => {
