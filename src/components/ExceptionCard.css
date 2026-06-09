@@ -1,0 +1,147 @@
+.exception-card {
+  background: var(--color-bg-primary);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.exception-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.exception-card:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.exception-card--critical {
+  border-left-color: var(--color-critical);
+}
+
+.exception-card--high {
+  border-left-color: var(--color-high);
+}
+
+.exception-card--medium {
+  border-left-color: var(--color-medium);
+}
+
+.exception-card--low {
+  border-left-color: var(--color-low);
+}
+
+.exception-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.exception-card__severity {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.exception-card__severity-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.5px;
+}
+
+.exception-card__status {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+}
+
+.exception-card__status--open {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+.exception-card__status--in-progress {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+.exception-card__status--pending {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-secondary);
+}
+
+.exception-card__status--escalated {
+  background: var(--color-critical-bg);
+  color: var(--color-critical);
+}
+
+.exception-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.3;
+}
+
+.exception-card__description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--spacing-md);
+}
+
+.exception-card__metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.exception-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+.exception-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.exception-card__impact {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+}
+
+.exception-card__impact-label {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+.exception-card__impact-value {
+  color: var(--color-text-primary);
+}
+
+.exception-card__priority {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+}
