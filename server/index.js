@@ -24,7 +24,9 @@ app.use(cors());
 app.use(express.json());
 
 // Serve static files from the dist directory
-app.use(express.static(path.join(__dirname, '../dist')));
+const distPath = path.join(__dirname, '../dist');
+console.log('Serving static files from:', distPath);
+app.use(express.static(distPath));
 
 // Health check endpoint
 app.get('/health', (req, res) => {
@@ -106,7 +108,9 @@ app.post('/api/exceptions/:id/action', (req, res) => {
 
 // Serve index.html for all non-API routes (for client-side routing)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/index.html'));
+  const indexPath = path.join(__dirname, '../dist/index.html');
+  console.log('Serving index.html from:', indexPath);
+  res.sendFile(indexPath);
 });
 
 const server = app.listen(PORT, '0.0.0.0', () => {
